@@ -1,0 +1,14 @@
+{
+  "name": "track-ur-mood-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Rike (hello@ueberdiespree.de)",
+  "license": "MIT",
+  "dependencies": {
+    "hapi": "^18.1.0",
+    "hapi-mongodb": "^9.0.0"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  }
+}
