@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "hapi": "^18.1.0",
-    "hapi-mongodb": "^9.0.0"
+    "lowdb": "^1.0.0"
   },
   "scripts": {
     "start": "nodemon server.js"

@@ -3,43 +3,39 @@
 const Hapi = require("hapi");
 const Boom = require("boom");
 
-const init = async () => {
-  const dbOpts = {
-    url: "mongodb://localhost:27017/test",
-    settings: {
-      poolSize: 10
-    },
-    decorate: true
-  };
+const low = require("lowdb");
+const FileSync = require("lowdb/adapters/FileSync");
 
+const adapter = new FileSync("db.json");
+const db = low(adapter);
+
+const init = async () => {
+  // Set some defaults (required if your JSON file is empty)
+  // db.defaults({ posts: [], count: 0 }).write();
+  
   const server = Hapi.server({
     port: 3000,
     host: "localhost"
   });
 
-  await server.register({
-    plugin: require("hapi-mongodb"),
-    options: dbOpts
-  });
-
-  await server.start();
-  console.log("Server running on %ss", server.info.uri);
-
   server.route({
     method: "GET",
     path: "/",
     async handler(request) {
-      const db = request.mongo.db;
-      const ObjectID = request.mongo.ObjectID;
       try {
-        const result = await db.flugzeuge.find();
-        console.log(result)
+        const result = db
+          .get("posts")
+          .find({ id: 1 })
+          .value();
         return result;
       } catch (err) {
-        throw Boom.internal("Internal MongoDB error", err);
+        throw Boom.internal("Internal database error", err);
       }
     }
   });
+
+  await server.start();
+  console.log("Server running on %ss", server.info.uri);
 };
 
 process.on("unhandledRejection", err => {
