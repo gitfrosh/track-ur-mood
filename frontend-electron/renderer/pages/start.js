@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import React, { Component } from "react";
+
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import {
   reset,
@@ -9,33 +11,53 @@ import {
   Toolbar,
   Menu,
   TextField,
-  LogoIcon,
+  Logo,
   ListItem,
   Divider
 } from "react95";
-import MyMenu from '../components/menu'
+import MyMenu from "../components/menu";
+import Main from "../components/main";
 
 const ResetStyles = createGlobalStyle`
   ${reset}
 `;
 
-const open = true;
+export default class App extends Component {
+  componentWillMount() {
+    this.setState({
+      //images: this.props.images
+      menu: 0
+    });
+  }
+  
+  setMenu = (id) => {
+    this.setState({
+      menu: parseInt(id)
+    });
+  }
+  
+  render() {
+    const { menu } = this.state;
+    return (
+      <div className="App">
+        <ResetStyles />
+        <ThemeProvider theme={themes.default}>
+          <>
+            <AppBar style={{ zIndex: 100 }}>
+              <Toolbar style={{ justifyContent: "space-between" }}>
+                <MyMenu menu={this.state.menu} setMenu={this.setMenu} />
 
-export default () => (
-  <div className="App">
-    <ResetStyles />
-    <ThemeProvider theme={themes.default}>
-      <AppBar>
-        <Toolbar style={{ justifyContent: "space-between" }}>
-        <MyMenu />
-
-          <TextField
-            placeholder="Search..."
-            width={150}
-            style={{ marginLeft: 4 }}
-          />
-        </Toolbar>
-      </AppBar>
-    </ThemeProvider>
-  </div>
-);
+                <TextField
+                  placeholder="Search..."
+                  width={150}
+                  style={{ marginLeft: 4 }}
+                />
+              </Toolbar>
+            </AppBar>
+            <Main menu={this.state.menu} />
+          </>
+        </ThemeProvider>
+      </div>
+    );
+  }
+}
