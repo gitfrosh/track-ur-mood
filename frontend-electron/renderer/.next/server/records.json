@@ -1,0 +1,23 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "multi private-next-pages/_document.js": 0,
+      "multi private-next-pages/mood.js": 1,
+      "multi private-next-pages/start.js": 2,
+      "multi next/dist/pages/_app": 3,
+      "multi next/dist/pages/_error": 4
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4
+    }
+  },
+  "chunks": {
+    "byName": {},
+    "bySource": {},
+    "usedIds": []
+  }
+}

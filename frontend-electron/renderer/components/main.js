@@ -36,11 +36,11 @@ export default class Main extends Component {
     console.log(this.props)
     return (
       <Window style={{ width: '100%', height: '100%', marginTop: '45px' }}>
-        <WindowHeader>👗 store.exe</WindowHeader>
+        <WindowHeader>🙄 track-ur-mood.exe</WindowHeader>
         <WindowContent>
             {this.props.menu === 1 && <Mood />}
             {this.props.menu === 2 && 'Profile'}
-            {this.props.menu === 3 && 'Account'}
+            {/* {this.props.menu === 2 && 'Account'} */}
         </WindowContent>
       </Window>
     );

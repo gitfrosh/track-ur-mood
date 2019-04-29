@@ -9,7 +9,8 @@
           "ssr": true,
           "displayName": true,
           "preprocess": false
-        }
+        },
+        "styled-jsx/babel"
       ]
     ]
   }

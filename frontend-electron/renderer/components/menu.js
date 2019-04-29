@@ -60,11 +60,11 @@ export default class MyMenu extends Component {
             open={this.state.open}
             onClick={this.handleClose}
           >
-            <ListItem id="1">👨‍💻 Profivfle</ListItem>
-            <ListItem id="2">📁 My account</ListItem>
+            <ListItem id="1">🙃 Track ur Mood</ListItem>
+            <ListItem id="2">📃 My account</ListItem>
             <Divider />
 
-            <ListItem id ="3" disabled>🔙 Logout</ListItem>
+            <ListItem id ="3" disabled>🔚 Logout</ListItem>
           </List>
         )}
         <Button
