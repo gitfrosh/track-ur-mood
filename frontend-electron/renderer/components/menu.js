@@ -15,7 +15,6 @@ import {
   Divider
 } from "react95";
 
-import { resolve } from "../../main/helpers";
 import logoIMG from "../static/logo.png";
 
 // const LogoIcon = Logo.LogoIcon;

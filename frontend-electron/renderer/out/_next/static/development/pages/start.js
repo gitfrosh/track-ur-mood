@@ -1,22 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/start.js"],{
 
-/***/ "../main/helpers.js":
-/*!**************************!*\
-  !*** ../main/helpers.js ***!
-  \**************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return resolve; });
-function resolve(pathname) {
-    if (false) {}
-    return '/' + pathname;
-  };
-
-/***/ }),
-
 /***/ "../node_modules/@babel/runtime-corejs2/core-js/array/is-array.js":
 /*!************************************************************************!*\
   !*** ../node_modules/@babel/runtime-corejs2/core-js/array/is-array.js ***!
@@ -17593,10 +17576,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var react95__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react95 */ "../node_modules/react95/dist/index.js");
 /* harmony import */ var react95__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react95__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _main_helpers__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../main/helpers */ "../main/helpers.js");
-/* harmony import */ var _static_logo_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../static/logo.png */ "./static/logo.png");
-/* harmony import */ var _static_logo_png__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_static_logo_png__WEBPACK_IMPORTED_MODULE_13__);
-
+/* harmony import */ var _static_logo_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../static/logo.png */ "./static/logo.png");
+/* harmony import */ var _static_logo_png__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_static_logo_png__WEBPACK_IMPORTED_MODULE_12__);
 
 
 
@@ -17692,7 +17673,7 @@ function (_Component) {
           height: "22px"
         }
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("img", {
-        src: _static_logo_png__WEBPACK_IMPORTED_MODULE_13___default.a,
+        src: _static_logo_png__WEBPACK_IMPORTED_MODULE_12___default.a,
         style: {
           height: "100%",
           width: "auto"
