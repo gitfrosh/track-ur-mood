@@ -5,7 +5,9 @@
   "license": "MIT",
   "repository": "",
   "scripts": {
-    "start": "electron .",
+    "develop": "electron .",
+    "dev": "next",
+    "start": "next start -p $PORT",
     "build": "next build renderer && next export renderer",
     "heroku-postbuild": "npm run build",
     "dist": "npm run build && bundle"
