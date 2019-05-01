@@ -1025,6 +1025,129 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "../node_modules/
 
 /***/ }),
 
+/***/ "./components/fingerprint.js":
+/*!***********************************!*\
+  !*** ./components/fingerprint.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return StarRating; });
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "../node_modules/@babel/runtime-corejs2/regenerator/index.js");
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/asyncToGenerator */ "../node_modules/@babel/runtime-corejs2/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "../node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "../node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "../node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "../node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "../node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "../node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "../node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react95__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react95 */ "react95");
+/* harmony import */ var react95__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react95__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var fingerprintjs2__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! fingerprintjs2 */ "fingerprintjs2");
+/* harmony import */ var fingerprintjs2__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(fingerprintjs2__WEBPACK_IMPORTED_MODULE_11__);
+
+
+
+
+
+
+
+
+
+
+
+
+
+var StarRating =
+/*#__PURE__*/
+function (_Component) {
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__["default"])(StarRating, _Component);
+
+  function StarRating() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(this, StarRating);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(StarRating)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "state", {
+      fingerprint: "loading .."
+    });
+
+    return _this;
+  }
+
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__["default"])(StarRating, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      var that = this;
+      setTimeout(function () {
+        var that2 = that;
+        fingerprintjs2__WEBPACK_IMPORTED_MODULE_11___default.a.get(function (components) {
+          var that3 = that2;
+          var values = components.map(function (component) {
+            return component.value;
+          });
+          var murmur = fingerprintjs2__WEBPACK_IMPORTED_MODULE_11___default.a.x64hash128(values.join(""), 31);
+          that3.setState({
+            fingerprint: murmur
+          });
+        });
+      }, 500);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var string = "Start"; // const logoIcon =
+
+      return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_10__["Fieldset"], {
+        label: "Your Fingerprint"
+      }, this.state.fingerprint);
+    }
+  }], [{
+    key: "getInitialProps",
+    value: function () {
+      var _getInitialProps = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
+      /*#__PURE__*/
+      _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function getInitialProps() {
+        return _getInitialProps.apply(this, arguments);
+      }
+
+      return getInitialProps;
+    }()
+  }]);
+
+  return StarRating;
+}(react__WEBPACK_IMPORTED_MODULE_9__["Component"]);
+
+
+
+/***/ }),
+
 /***/ "./components/main.js":
 /*!****************************!*\
   !*** ./components/main.js ***!
@@ -1276,6 +1399,132 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./components/star-rating.js":
+/*!***********************************!*\
+  !*** ./components/star-rating.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return StarRating; });
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "../node_modules/@babel/runtime-corejs2/regenerator/index.js");
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/asyncToGenerator */ "../node_modules/@babel/runtime-corejs2/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "../node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "../node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "../node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "../node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "../node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "../node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "../node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react_star_ratings__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-star-ratings */ "react-star-ratings");
+/* harmony import */ var react_star_ratings__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_star_ratings__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var react95__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react95 */ "react95");
+/* harmony import */ var react95__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react95__WEBPACK_IMPORTED_MODULE_11__);
+
+
+
+
+
+
+
+
+
+
+
+
+
+var StarRating =
+/*#__PURE__*/
+function (_Component) {
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__["default"])(StarRating, _Component);
+
+  function StarRating() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(this, StarRating);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(StarRating)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "changeRating", function (newRating, name) {
+      _this.setState({
+        rating: newRating
+      });
+    });
+
+    return _this;
+  }
+
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__["default"])(StarRating, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.setState({
+        //images: this.props.images
+        rating: 0
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var string = "Start"; // const logoIcon =
+
+      return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_9___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_star_ratings__WEBPACK_IMPORTED_MODULE_10___default.a, {
+        rating: this.state.rating,
+        starRatedColor: "red",
+        starEmptyColor: "white",
+        starDimension: "40px",
+        starSpacing: "15px",
+        changeRating: this.changeRating,
+        numberOfStars: 6,
+        name: "rating"
+      }), this.state.rating !== 0 && react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_11__["Fieldset"], {
+        style: {
+          marginTop: '20px'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", null, "Thank you! \uD83D\uDE03 Your rating: ", this.state.rating, " stars.")));
+    }
+  }], [{
+    key: "getInitialProps",
+    value: function () {
+      var _getInitialProps = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
+      /*#__PURE__*/
+      _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function getInitialProps() {
+        return _getInitialProps.apply(this, arguments);
+      }
+
+      return getInitialProps;
+    }()
+  }]);
+
+  return StarRating;
+}(react__WEBPACK_IMPORTED_MODULE_9__["Component"]);
+
+
+
+/***/ }),
+
 /***/ "./pages/mood.js":
 /*!***********************!*\
   !*** ./pages/mood.js ***!
@@ -1295,10 +1544,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "../node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var react_star_ratings__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-star-ratings */ "react-star-ratings");
-/* harmony import */ var react_star_ratings__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_star_ratings__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var react95__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react95 */ "react95");
-/* harmony import */ var react95__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react95__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react95__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react95 */ "react95");
+/* harmony import */ var react95__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react95__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _components_star_rating__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/star-rating */ "./components/star-rating.js");
+/* harmony import */ var _components_fingerprint__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/fingerprint */ "./components/fingerprint.js");
+
 
 
 
@@ -1328,12 +1578,6 @@ function (_Component) {
 
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Main)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "changeRating", function (newRating, name) {
-      _this.setState({
-        rating: newRating
-      });
-    });
-
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "changeTab", function (e) {
       _this.setState({
         activeTab: e
@@ -1348,52 +1592,44 @@ function (_Component) {
     value: function componentWillMount() {
       this.setState({
         //images: this.props.images
-        activeTab: 0,
-        rating: 0
+        activeTab: 0
       });
     }
   }, {
     key: "render",
     value: function render() {
       var activeTab = this.state.activeTab;
-      return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_9__["Tabs"], {
+      return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_8__["Tabs"], {
         value: activeTab,
         onChange: this.changeTab
-      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_9__["Tab"], {
+      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_8__["Tab"], {
         value: 0
-      }, "Rate it!"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_9__["Tab"], {
+      }, "Rate it!"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_8__["Tab"], {
         value: 1
-      }, "\uD83D\uDCC8 Stats"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_9__["Tab"], {
+      }, "\uD83D\uDCC8 Stats"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_8__["Tab"], {
         value: 2
-      }, "More stuff")), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+      }, "Fingerprint"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_8__["Tab"], {
+        value: 3
+      }, "Random stuff")), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         style: {
           height: 300
         }
-      }, activeTab === 0 && react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_9__["TabBody"], null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_9__["Fieldset"], {
+      }, activeTab === 0 && react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_8__["TabBody"], null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_8__["Fieldset"], {
         label: "Rate your day:"
-      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_star_ratings__WEBPACK_IMPORTED_MODULE_8___default.a, {
-        rating: this.state.rating,
-        starRatedColor: "red",
-        starEmptyColor: "white",
-        starDimension: "40px",
-        starSpacing: "15px",
-        changeRating: this.changeRating,
-        numberOfStars: 6,
-        name: "rating"
-      }))), activeTab === 1 && react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_9__["TabBody"], null, "wow wow.."), activeTab === 2 && react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_9__["TabBody"], null, " ", react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_9__["Fieldset"], {
+      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_components_star_rating__WEBPACK_IMPORTED_MODULE_9__["default"], null))), activeTab === 1 && react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_8__["TabBody"], null, "wow wow.."), activeTab === 2 && react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_8__["TabBody"], null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_components_fingerprint__WEBPACK_IMPORTED_MODULE_10__["default"], null)), activeTab === 3 && react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_8__["TabBody"], null, " ", react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_8__["Fieldset"], {
         label: "Order:"
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         style: {
           padding: "0.5em 0 0.5em 0"
         }
-      }, "Amount:"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_9__["NumberField"], {
+      }, "Amount:"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_8__["NumberField"], {
         width: "100%",
         min: 0,
         value: 0,
         onChange: function onChange() {
           return null;
         }
-      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_9__["Checkbox"], {
+      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react95__WEBPACK_IMPORTED_MODULE_8__["Checkbox"], {
         name: "shipping",
         value: "fast",
         label: "Fast shipping",
@@ -1682,6 +1918,17 @@ module.exports = require("core-js/library/fn/symbol");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/symbol/iterator");
+
+/***/ }),
+
+/***/ "fingerprintjs2":
+/*!*********************************!*\
+  !*** external "fingerprintjs2" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("fingerprintjs2");
 
 /***/ }),
 

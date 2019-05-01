@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import StarRatings from "react-star-ratings";
 import {
   reset,
   themes,
@@ -23,20 +22,16 @@ import {
   Divider
 } from "react95";
 
+import StarRating from "../components/star-rating";
+import Fingerprint from "../components/fingerprint";
+
 export default class Main extends Component {
   componentWillMount() {
     this.setState({
       //images: this.props.images
-      activeTab: 0,
-      rating: 0
+      activeTab: 0
     });
   }
-
-  changeRating = (newRating, name) => {
-    this.setState({
-      rating: newRating
-    });
-  };
 
   changeTab = e => {
     this.setState({
@@ -51,27 +46,24 @@ export default class Main extends Component {
         <Tabs value={activeTab} onChange={this.changeTab}>
           <Tab value={0}>Rate it!</Tab>
           <Tab value={1}>📈 Stats</Tab>
-          <Tab value={2}>More stuff</Tab>
+          <Tab value={2}>Fingerprint</Tab>
+          <Tab value={3}>Random stuff</Tab>
         </Tabs>
         <div style={{ height: 300 }}>
           {activeTab === 0 && (
             <TabBody>
               <Fieldset label="Rate your day:">
-                <StarRatings
-                  rating={this.state.rating}
-                  starRatedColor="red"
-                  starEmptyColor="white"
-                  starDimension="40px"
-                  starSpacing="15px"
-                  changeRating={this.changeRating}
-                  numberOfStars={6}
-                  name="rating"
-                />
+                <StarRating />
               </Fieldset>
             </TabBody>
           )}
           {activeTab === 1 && <TabBody>wow wow..</TabBody>}
           {activeTab === 2 && (
+            <TabBody>
+              <Fingerprint />
+            </TabBody>
+          )}
+          {activeTab === 3 && (
             <TabBody>
               {" "}
               <Fieldset label="Order:">
