@@ -2,7 +2,9 @@ import React, { Component } from "react";
 
 import StarRatings from "react-star-ratings";
 
-import { Fieldset } from "react95";
+import { Fieldset, Button } from "react95";
+
+import fetchData from "../api";
 
 export default class StarRating extends Component {
   static async getInitialProps() {
@@ -11,21 +13,40 @@ export default class StarRating extends Component {
     // return { images }
   }
 
+  state = {
+    //images: this.props.images
+    rating: 0,
+    mood: this.props.mood
+  };
+
   changeRating = (newRating, name) => {
     this.setState({
       rating: newRating
     });
   };
 
-  componentWillMount() {
-    this.setState({
-      //images: this.props.images
-      rating: 0
-    });
+  componentWillMount() {}
+
+  async saveRating() {
+    // POST
+    // ...
+    // REFETCH
+    try {
+      const mood = await fetchData();
+      console.log(mood)
+      this.setState({
+        mood: mood
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
+
   render() {
     const string = "Start";
+    const { mood } = this.props;
     // const logoIcon =
+    const isDisabled = mood === 0 ? false : true;
     return (
       <>
         <StarRatings
@@ -38,9 +59,21 @@ export default class StarRating extends Component {
           numberOfStars={6}
           name="rating"
         />
-        {this.state.rating !== 0 && <Fieldset style={{ marginTop: '20px' }}>
-          <p>Thank you! 😃 Your rating: {this.state.rating} stars.</p>
-        </Fieldset>}
+        <Button
+          style={{ width: "100px", marginTop: "20px" }}
+          disabled={isDisabled}
+          onClick={this.saveRating}
+          size={"lg"}
+          square
+        >
+          Save
+        </Button>
+
+        {isDisabled && (
+          <Fieldset style={{ marginTop: "20px" }}>
+            <p>You rated your day with {mood} stars.</p>
+          </Fieldset>
+        )}
       </>
     );
   }

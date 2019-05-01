@@ -41,6 +41,7 @@ export default class Main extends Component {
 
   render() {
     const { activeTab } = this.state;
+    const { today, mood } = this.props;
     return (
       <>
         <Tabs value={activeTab} onChange={this.changeTab}>
@@ -52,8 +53,8 @@ export default class Main extends Component {
         <div style={{ height: 300 }}>
           {activeTab === 0 && (
             <TabBody>
-              <Fieldset label="Rate your day:">
-                <StarRating />
+              <Fieldset label={`Rate your day (${today}):`}>
+                <StarRating mood={mood} />
               </Fieldset>
             </TabBody>
           )}
