@@ -54,7 +54,7 @@ export default class Main extends Component {
           {activeTab === 0 && (
             <TabBody>
               <Fieldset label={`Rate your day (${today}):`}>
-                <StarRating mood={mood} />
+                <StarRating mood={mood} today={today} />
               </Fieldset>
             </TabBody>
           )}

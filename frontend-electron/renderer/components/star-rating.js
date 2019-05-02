@@ -4,7 +4,7 @@ import StarRatings from "react-star-ratings";
 
 import { Fieldset, Button } from "react95";
 
-import fetchData from "../api";
+import { fetchData, postMood } from "../api";
 
 export default class StarRating extends Component {
   static async getInitialProps() {
@@ -25,53 +25,66 @@ export default class StarRating extends Component {
     });
   };
 
-  componentWillMount() {}
+  componentWillMount() {
+    console.log(this.props);
+  }
 
-  async saveRating() {
+  saveRating = async () => {
     // POST
-    // ...
+    try {
+      const mood = await postMood({
+        mood: this.state.rating,
+        date: this.props.today
+      });
+      console.log(mood);
+    } catch (e) {
+      console.log(e);
+    }
     // REFETCH
     try {
       const mood = await fetchData();
-      console.log(mood)
+      console.log(mood);
       this.setState({
         mood: mood
       });
     } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   render() {
-    const string = "Start";
-    const { mood } = this.props;
-    // const logoIcon =
+    const { mood } = this.state;
     const isDisabled = mood === 0 ? false : true;
     return (
       <>
-        <StarRatings
-          rating={this.state.rating}
-          starRatedColor="red"
-          starEmptyColor="white"
-          starDimension="40px"
-          starSpacing="15px"
-          changeRating={this.changeRating}
-          numberOfStars={6}
-          name="rating"
-        />
-        <Button
-          style={{ width: "100px", marginTop: "20px" }}
-          disabled={isDisabled}
-          onClick={this.saveRating}
-          size={"lg"}
-          square
-        >
-          Save
-        </Button>
+        {!isDisabled && (
+          <StarRatings
+            rating={this.state.rating}
+            starRatedColor="red"
+            starEmptyColor="white"
+            starDimension="40px"
+            starSpacing="15px"
+            changeRating={this.changeRating}
+            numberOfStars={6}
+            name="rating"
+            isSelectable={isDisabled}
+          />
+        )}
+        {!isDisabled && (
+          <Button
+            style={{ width: "100px", marginTop: "20px" }}
+            disabled={isDisabled}
+            onClick={this.saveRating}
+            size={"lg"}
+            square
+          >
+            Save
+          </Button>
+        )}
 
         {isDisabled && (
           <Fieldset style={{ marginTop: "20px" }}>
-            <p>You rated your day with {mood} stars.</p>
+            <p>You rated your day with {mood} stars. Rate again tomorrow! 😜</p>
           </Fieldset>
         )}
       </>

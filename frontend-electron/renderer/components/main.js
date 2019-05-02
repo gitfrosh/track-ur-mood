@@ -38,6 +38,7 @@ export default class Main extends Component {
       <Window style={{ width: '100%', height: '100%', marginTop: '45px' }}>
         <WindowHeader>🙄 track-ur-mood.exe</WindowHeader>
         <WindowContent>
+            {!this.props.menu && 'Welcome to this nifty Electron.js app!'}
             {this.props.menu === 1 && <Mood mood={this.props.mood} today={this.props.today} />}
             {this.props.menu === 2 && 'Profile'}
             {/* {this.props.menu === 2 && 'Account'} */}

@@ -18,7 +18,7 @@ import {
 } from "react95";
 import MyMenu from "../components/menu";
 import Main from "../components/main";
-import fetchData from "../api";
+import { fetchData } from "../api";
 
 const ResetStyles = createGlobalStyle`
   ${reset}
@@ -41,6 +41,7 @@ export default class App extends Component {
   async componentWillMount() {
     try {
       const mood = await fetchData();
+      console.log(mood);
       this.setState({
         mood: mood,
         menu: 0

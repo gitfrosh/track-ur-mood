@@ -2,7 +2,7 @@
 
 const Hapi = require("hapi");
 const Boom = require("boom");
-const uuidv1 = require('uuid/v1');
+const uuidv1 = require("uuid/v1");
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 
@@ -19,15 +19,19 @@ const init = async () => {
   });
 
   server.route({
+    config: {
+      cors: true
+    },
     method: "GET",
-    path: "/moods",
+    path: "/moods/",
     async handler(request) {
       try {
         const result = db
           .get("posts")
           .find({ id: 1 })
           .value();
-        return result;
+        console.log('result', result)  
+        return result.mood;
       } catch (err) {
         throw Boom.internal("Internal database error", err);
       }
@@ -35,6 +39,9 @@ const init = async () => {
   });
 
   server.route({
+    config: {
+      cors: true
+    },
     method: "GET",
     path: "/mood/{date}",
     async handler(request) {
@@ -46,12 +53,14 @@ const init = async () => {
           .get("posts")
           .find({ date: requestedDate })
           .value();
+          console.log('result', result)  
+
         if (!result) {
           reply = 0;
         } else {
-          reply = result;
+          reply = result.mood;
         }
-        console.log(reply);  
+        console.log(reply);
         return reply;
       } catch (err) {
         throw Boom.internal("Internal database error", err);
@@ -59,15 +68,20 @@ const init = async () => {
     }
   });
 
-
   server.route({
+    config: {
+      cors: true
+    },
     method: "POST",
-    path: "/moods",
+    path: "/moods/",
     async handler(request, reply) {
+      console.log(request.payload)
       try {
-        const date = JSON.stringify(request.payload.date);
-        const mood = JSON.stringify(request.payload.mood);
-        const result = db.get("posts")
+        const date = request.payload.date;
+        const mood = request.payload.mood;
+        console.log(`new date: ${date} .. new mood: ${mood}`)
+        const result = db
+          .get("posts")
           .push({ id: uuidv1(), date: date, mood: mood })
           .write();
         return result;
